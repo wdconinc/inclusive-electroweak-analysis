@@ -1,4 +1,4 @@
-name: Run Analysis
+name: Analysis
 
 on: [push, pull_request]
 
@@ -13,6 +13,6 @@ jobs:
       # Setup cvmfs filesystem access
       run: ./setup.sh
 
-    - name: Run Analysis Script
+    - name: Run analysis
       # Run an analysis script
       run: ./run.sh
