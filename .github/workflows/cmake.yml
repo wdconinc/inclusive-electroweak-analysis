@@ -1,0 +1,19 @@
+name: Run Analysis
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup cvmfs
+      # Setup cvmfs filesystem access
+      run: setup_cvmfs.sh
+
+    - name: Run Analysis Script
+      # Run an analysis script
+      shell: bash
+      run: run_analysis.sh
