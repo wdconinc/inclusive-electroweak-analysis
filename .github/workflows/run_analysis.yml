@@ -11,9 +11,9 @@ jobs:
 
     - name: Setup cvmfs
       # Setup cvmfs filesystem access
-      run: setup_cvmfs.sh
+      run: setup.sh
 
     - name: Run Analysis Script
       # Run an analysis script
       shell: bash
-      run: run_analysis.sh
+      run: run.sh
