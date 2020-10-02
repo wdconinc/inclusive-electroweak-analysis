@@ -11,6 +11,7 @@ sudo mkdir -p /etc/cvmfs
 sudo service autofs stop
 sudo echo "CVMFS_REPOSITORIES=eic.opensciencegrid.org" | sudo tee /etc/cvmfs/default.local
 sudo cvmfs_config setup
+ls -al /cvmfs
 sudo mkdir -p /cvmfs/eic.opensciencegrid.org
 sudo mount -t cvmfs eic.opensciencegrid.org /cvmfs/eic.opensciencegrid.org
 
