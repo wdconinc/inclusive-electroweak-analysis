@@ -7,13 +7,14 @@ sudo apt-get -q update
 sudo apt-get -q -y install cvmfs cvmfs-config-default
 rm -f cvmfs-release-latest_all.deb
 
+# Restrict to eic.opensciencegrid.org
 sudo mkdir -p /etc/cvmfs
-sudo service autofs stop
-sudo service autofs status
-ls -al /etc/auto.cvmfs
-ls -al /etc/auto.master.d/cvmfs.autofs
-sudo echo "CVMFS_REPOSITORIES=eic.opensciencegrid.org" | sudo tee /etc/cvmfs/default.local
+echo "CVMFS_REPOSITORIES=eic.opensciencegrid.org" | sudo tee /etc/cvmfs/default.local
 sudo cvmfs_config setup
+
+# Use autofs
+sudo service autofs stop
+echo "/cvmfs /etc/auto.cvmfs" | sudo tee /etc/auto.master.d/cvmfs.autofs
 sudo service autofs start
 sudo service autofs status
 ls -al /etc/auto.cvmfs
