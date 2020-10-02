@@ -8,8 +8,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - id: eic-cvmfs-spack
-      uses: https://github.com/wdconinc/eic-cvmfs-spack-action@v1
+    - uses: wdconinc/eic-cvmfs-spack-action@v1
 
     - name: Run analysis
       # Run an analysis script
