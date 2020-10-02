@@ -10,6 +10,7 @@ rm -f cvmfs-release-latest_all.deb
 # Restrict to eic.opensciencegrid.org
 sudo mkdir -p /etc/cvmfs
 echo "CVMFS_REPOSITORIES=eic.opensciencegrid.org" | sudo tee /etc/cvmfs/default.local
+echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee -a /etc/cvmfs/default.local
 sudo cvmfs_config setup
 sudo cvmfs_config status
 sudo cvmfs_config probe
