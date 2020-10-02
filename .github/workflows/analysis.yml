@@ -8,12 +8,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: wdconinc/eic-cvmfs-spack-action@v1
 
-    - name: Run analysis
-      # Run an analysis script
+    - name: Setup
+      run: ./setup.sh | tee setup.log
+    - name: Upload setup log
+      uses: actions/upload-artifact@v2
+      with:
+        name: setup.log
+        path: setup.log
+
+    - name: Run
       run: ./run.sh | tee run.log
-    - name: Upload log
+    - name: Upload run log
       uses: actions/upload-artifact@v2
       with:
         name: run.log
