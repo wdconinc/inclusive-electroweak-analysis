@@ -23,4 +23,10 @@ ls -al /etc/auto.master.d/cvmfs.autofs
 #sudo mkdir -p /cvmfs/eic.opensciencegrid.org
 #sudo mount -t cvmfs eic.opensciencegrid.org /cvmfs/eic.opensciencegrid.org
 
+sudo automount -m
+
+ls -al /
+ls -al /cvmfs
+mount -t autofs
+ls -al /cvmfs
 ls -al /cvmfs/eic.opensciencegrid.org
