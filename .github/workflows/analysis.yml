@@ -8,20 +8,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Setup cvmfs
-      # Setup cvmfs filesystem access
-      run: ./setup.sh | tee setup.log
-    - name: Upload math result for job 1
-      uses: actions/upload-artifact@v2
-      with:
-        name: setup.log
-        path: setup.log
+    - id: eic-cvmfs-spack
+      uses: actions/eic-cvmfs-spack-action@v1
 
     - name: Run analysis
       # Run an analysis script
       run: ./run.sh | tee run.log
-    - name: Upload math result for job 1
+    - name: Upload log
       uses: actions/upload-artifact@v2
       with:
         name: run.log
