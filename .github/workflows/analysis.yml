@@ -11,8 +11,18 @@ jobs:
 
     - name: Setup cvmfs
       # Setup cvmfs filesystem access
-      run: ./setup.sh
+      run: ./setup.sh | tee setup.log
+    - name: Upload math result for job 1
+      uses: actions/upload-artifact@v2
+      with:
+        name: setup.log
+        path: setup.log
 
     - name: Run analysis
       # Run an analysis script
-      run: ./run.sh
+      run: ./run.sh | tee run.log
+    - name: Upload math result for job 1
+      uses: actions/upload-artifact@v2
+      with:
+        name: run.log
+        path: run.log
