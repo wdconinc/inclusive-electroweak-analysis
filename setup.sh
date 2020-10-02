@@ -11,6 +11,9 @@ rm -f cvmfs-release-latest_all.deb
 sudo mkdir -p /etc/cvmfs
 echo "CVMFS_REPOSITORIES=eic.opensciencegrid.org" | sudo tee /etc/cvmfs/default.local
 sudo cvmfs_config setup
+sudo cvmfs_config status
+sudo cvmfs_config probe
+sudo cvmfs_config showconfig
 
 # Use autofs
 echo "+dir:/etc/auto.master.d" | sudo tee /etc/auto.master
@@ -20,8 +23,6 @@ sudo service autofs start
 sudo service autofs status
 ls -al /etc/auto.cvmfs
 ls -al /etc/auto.master.d/cvmfs.autofs
-#sudo mkdir -p /cvmfs/eic.opensciencegrid.org
-#sudo mount -t cvmfs eic.opensciencegrid.org /cvmfs/eic.opensciencegrid.org
 
 sudo automount -m
 
