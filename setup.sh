@@ -13,7 +13,8 @@ echo "CVMFS_REPOSITORIES=eic.opensciencegrid.org" | sudo tee /etc/cvmfs/default.
 sudo cvmfs_config setup
 
 # Use autofs
-sudo service autofs stop
+echo "+dir:/etc/auto.master.d" | sudo tee /etc/auto.master
+sudo mkdir -p /etc/auto.master.d
 echo "/cvmfs /etc/auto.cvmfs" | sudo tee /etc/auto.master.d/cvmfs.autofs
 sudo service autofs start
 sudo service autofs status
