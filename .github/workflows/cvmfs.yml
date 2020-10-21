@@ -1,0 +1,15 @@
+name: Cvmfs
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: wdconinc/eic-cvmfs-spack-action@master
+      with:
+         cvmfs_repositories: 'eic.opensciencegrid.org'
+    - name: Setup CernVM-FS
+      run: cat /etc/cvmfs/default.local && ls /cvmfs 
