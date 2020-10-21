@@ -12,4 +12,9 @@ jobs:
       with:
          cvmfs_repositories: 'eic.opensciencegrid.org'
     - name: Setup CernVM-FS
-      run: cat /etc/cvmfs/default.local && ls /cvmfs 
+      run: cat /etc/cvmfs/default.local && ls /cvmfs/eic.opensciencegrid.org/ | tee run.log
+    - name: Upload run log
+      uses: actions/upload-artifact@v2
+      with:
+        name: run.log
+        path: run.log
